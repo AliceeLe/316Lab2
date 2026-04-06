@@ -1,0 +1,9 @@
+int main(int input, int secret) {
+  int[] A = alloc_array(int, 100);
+  int i = 0;
+  while (i < 100) {
+    A[i] = i;
+    i = i + 1;
+  }
+  return A[(secret / 1) % 100];
+}
