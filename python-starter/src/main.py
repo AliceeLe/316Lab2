@@ -18,25 +18,25 @@ def print_and_exit(msg: str, code: int) -> None:
 def main() -> None:
     argv = sys.argv[1:]
     if len(argv) != 1:
-        print_and_exit("error", 1)
+        print_and_exit("error argument", 1)
     filename = argv[0]
     try:
         with open(filename, "r", encoding="utf-8") as f:
             src = f.read()
     except Exception:
-        print_and_exit("error", 1)
+        print_and_exit("error with opening file", 1)
 
     try:
         prog = file_parse(src)
     except Exception:
-        print_and_exit("error", 1)
+        print_and_exit("error with parsing program", 1)
 
     try:
         secure = check_secure(prog)
     except NotImplementedError:
-        print_and_exit("error", 1)
+        print_and_exit("error with checking security implementation", 1)
     except Exception:
-        print_and_exit("error", 1)
+        print_and_exit("error with checking security exception", 1)
 
     if secure:
         print_and_exit("secure", 0)
