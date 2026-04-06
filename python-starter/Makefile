@@ -14,7 +14,6 @@ VENDOR_DIRS := ./vendor
 FILES := \
 	Makefile \
 	requirements.txt \
-	.gitignore \
 	c0_serve.sh \
 	$(shell find $(SRC_DIRS) -name '*.py') \
 	$(shell test -d $(VENDOR_DIRS) && find $(VENDOR_DIRS) -type f)
